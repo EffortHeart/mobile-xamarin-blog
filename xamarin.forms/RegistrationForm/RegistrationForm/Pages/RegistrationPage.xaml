@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	 xmlns:effects="clr-namespace:FormsCommunityToolkit.Effects;assembly=FormsCommunityToolkit.Effects"
+	xmlns:local="clr-namespace:RegistrationForm.Pages" x:Class="RegistrationForm.Pages.RegistrationPage">
+	<ContentPage.Padding>
+	        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" WinPhone="20,20,20,20" />
+	</ContentPage.Padding>
+	<StackLayout>
+		<TableView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+			<TableRoot>
+				<TableSection Title="Profile">
+					<EntryCell Label="First Name" Placeholder="John" Keyboard="Email" />
+					<EntryCell Label="Last Name" Placeholder="Doe" Keyboard="Numeric" />
+					<ViewCell>
+						<StackLayout>
+							<StackLayout.Padding>
+								<OnPlatform x:TypeArguments="Thickness"
+				                iOS="15,5,5,5"
+				                Android="15,0,5,5"
+				                WinPhone="15,5,5,5" />
+							</StackLayout.Padding>
+							<StackLayout.Orientation>
+								<OnPlatform x:TypeArguments="StackOrientation" iOS="Horizontal" Android="Horizontal" WinPhone="Vertical" />
+							</StackLayout.Orientation>
+							<Label Text="Birth Date" 
+							HorizontalOptions="FillAndExpand" 
+							VerticalTextAlignment="Center" />
+							<DatePicker>
+								<DatePicker.Effects>
+									<effects:RemoveBorderEffect />
+								</DatePicker.Effects>
+							</DatePicker>
+						</StackLayout>
+					</ViewCell>
+					<ViewCell>
+						<StackLayout>
+							<StackLayout.Padding>
+								<OnPlatform x:TypeArguments="Thickness"
+				                iOS="15,5,5,5"
+				                Android="15,0,5,5"
+				                WinPhone="15,5,5,5" />
+							</StackLayout.Padding>
+							<StackLayout.Orientation>
+								<OnPlatform x:TypeArguments="StackOrientation" iOS="Horizontal" Android="Horizontal" WinPhone="Vertical" />
+							</StackLayout.Orientation>
+							<Label Text="Country" 
+								VerticalTextAlignment="Center"
+							 />
+							<Picker 
+								Title="{Binding CountryPlaceholder}"
+								HorizontalOptions="FillAndExpand"
+								SelectedIndex="{Binding CountriesSelectedIndex}"
+								ItemsSource="{Binding Countries}"
+							>
+								<Picker.Effects>
+									<effects:RemoveBorderEffect />
+								</Picker.Effects>
+							</Picker>
+						</StackLayout>
+					</ViewCell>
+					<ViewCell>
+						<StackLayout>
+							<StackLayout.Padding>
+								<OnPlatform x:TypeArguments="Thickness"
+				                iOS="15,5,5,5"
+				                Android="15,0,5,5"
+				                WinPhone="15,5,5,5" />
+							</StackLayout.Padding>
+							<StackLayout.Orientation>
+								<OnPlatform x:TypeArguments="StackOrientation" iOS="Horizontal" Android="Horizontal" WinPhone="Vertical" />
+							</StackLayout.Orientation>
+							<Label Text="{Binding StateProvinceLabel}" 
+							VerticalTextAlignment="Center"
+							/>
+							<Picker 
+								HorizontalOptions="FillAndExpand"
+								ItemsSource="{Binding StatesProvinces}">
+								<Picker.Effects>
+									<effects:RemoveBorderEffect />
+								</Picker.Effects>
+							</Picker>
+						</StackLayout>
+					</ViewCell>
+				</TableSection>
+				<TableSection Title="Credentials">
+					<EntryCell Label="Username" Placeholder="who@are.you" Keyboard="Email" />
+					<ViewCell>
+						<StackLayout>
+							<StackLayout.Padding>
+								<OnPlatform x:TypeArguments="Thickness"
+				                iOS="15,5,5,5"
+				                Android="15,0,5,5"
+				                WinPhone="15,5,5,5" />
+							</StackLayout.Padding>
+							<StackLayout.Orientation>
+								<OnPlatform x:TypeArguments="StackOrientation" iOS="Horizontal" Android="Horizontal" WinPhone="Vertical" />
+							</StackLayout.Orientation>
+							<Label Text="Password" VerticalTextAlignment="Center" />
+							<Entry Text="" IsPassword="true" HorizontalOptions="FillAndExpand">
+								<Entry.Effects>
+									<effects:RemoveBorderEffect />
+								</Entry.Effects>
+							</Entry>
+						</StackLayout>
+					</ViewCell>
+					<ViewCell>
+						<StackLayout>
+							<StackLayout.Padding>
+								<OnPlatform x:TypeArguments="Thickness"
+				                iOS="15,5,5,5"
+				                Android="15,0,5,5"
+				                WinPhone="15,5,5,5" />
+							</StackLayout.Padding>
+							<StackLayout.Orientation>
+								<OnPlatform x:TypeArguments="StackOrientation" iOS="Horizontal" Android="Horizontal" WinPhone="Vertical" />
+							</StackLayout.Orientation>
+							<Label Text="Confirm Password" VerticalTextAlignment="Center"/>
+							<Entry Text="" IsPassword="true" HorizontalOptions="FillAndExpand">
+								<Entry.Effects>
+									<effects:RemoveBorderEffect />
+								</Entry.Effects>
+							</Entry>
+						</StackLayout>
+					</ViewCell>
+
+				</TableSection>
+			</TableRoot>
+		</TableView>
+		<Button x:Name="RegisterBtn" Text="Register" BorderRadius="0" BackgroundColor="Blue" TextColor="White" Command="{Binding AddACountryCommand}" />
+	</StackLayout>
+</ContentPage>
